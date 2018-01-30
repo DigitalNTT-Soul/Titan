@@ -71,8 +71,14 @@ local commands={
     {
         name="kill",
         usage=nil,
-        dusasge=nil,
+        dusage=nil,
         action=debug.kill,
+        },
+    {
+        name="reboot",
+        usage=nil,
+        dusage=nil,
+        action=debug.reboot,
         },
 }
 
