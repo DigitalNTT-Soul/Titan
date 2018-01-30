@@ -77,19 +77,14 @@ client:on('messageCreate', function (message) --parses out prefix if necessary, 
         if message.channel.type==1 then
             if string.sub(message.content, 1, #prefix)==prefix then
                 local text = string.lower(string.sub(message.content, #prefix+1, -1))
-                owner:send(message.author.fullname .. ' ' .. message.content) --scaffolding
-                owner:send(text) --scaffolding
                 handler(client, logger, message, text)
             else
                 local text = string.lower(message.content)
-                owner:send(message.author.fullname .. ' ' .. message.content) --scaffolding
                 handler(client, logger, message, text)
             end
         elseif message.channel.type==0 then
             if string.sub(message.content, 1, #prefix)==prefix then
                 local text = string.lower(string.sub(message.content, #prefix+1, -1))
-                owner:send(message.author.fullname .. ' ' .. message.content) --scaffolding
-                owner:send(text) --scaffolding
                 handler(client, logger, message, text)
             end
         end

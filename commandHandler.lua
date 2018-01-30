@@ -31,35 +31,27 @@ mmlMechanics
     --]]
 
 local function blacklist(id)
-    --print('got to blacklist')
     local list ={
     }
     for i=1, #list do
         if id==list[i] then
-            --print('blacklist says false')
             return false
         end
     end
-    --print('blacklist says true')
     return true
 end
 
 local function validityChecker(message,text)
-    --print('got to validityChecker')
     if discordia.class.type(message)=="Message" and type(text)=="string" then
-        --print('validityChecker returns true')
         return true
     else
         logger:log(1 --[[error]], "COMMAND FAILED DUE TO IMPROPER ARGUMENTS!!")
-        --print('validityChecker returns false')
         return false
     end
 end
 
 local function handler(client, logger, message, text)
-    --print('got to handler') --scaffolding
     if validityChecker(message,text) and blacklist(message.author.id) then
-        --print('validityChecker and blacklist returned true')--scaffolding
         local status=0
         for i=1, #commands do
             if string.sub(text, 1, #commands[i]['name'])==commands[i]['name'] then
