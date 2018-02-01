@@ -77,26 +77,35 @@ end
 local function spam(client, logger, message, text)
     local function loop(channel, text)
         --the actual loop that spams the messages out.
-        for i=1, 20 do
+        for i=1, 5 do
             channel:send(text)
         end
+        channel:send('done')
     end
-
+    
     if message.guild then
         if message.guild:getMember(message.author):hasPermission(0x00000008) then
-            if message.guild:getMember(client.user):hasPermission(0x00000010) then
-                spamChannel = message.guild:createTextChannel('Spamming')
-                loop(spamChannel, text)
-                spamChannel:delete()
+            if text~='' then
+                if message.guild:getMember(client.user):hasPermission(0x00000010) then
+                    spamChannel = message.guild:createTextChannel('Spamming')
+                    loop(spamChannel, text)
+                    spamChannel:delete()
+                else
+                    loop(message.channel, text)
+                end
             else
-                loop(message.channel, text)
+                message:reply('Try again, but this time, tell me what to FUCKING SAY!!!')
             end
         else
             message:reply("You don't have the authority to have me spam for you.")
         end
     else
-        loop(message.channel, text)
-    end
+        if text ~='' then
+            loop(message.channel, text)
+        else
+            message:reply("Try again, but this time, tell me what to FUCKING SAY!!!")
+        end
+    end    
 end
 
 return {
