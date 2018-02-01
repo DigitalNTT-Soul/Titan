@@ -86,6 +86,12 @@ local commands={
         dusage=nil,
         action=debug.reboot,
         },
+    {
+        name="exec",
+        usage=nil,
+        dusage=nil,
+        action=debug.exec,
+        },
 }
 
 return commands
