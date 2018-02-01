@@ -24,8 +24,7 @@ local function help(client, logger, message, text)
             end
         end
         if status==0 then
-            message.author:send("I couldn't find a command called '" .. text .. "'. Here's the main list instead.")
-            message.author:send(mainHelp)
+            message.author:send("I couldn't find a command called '" .. text .. "'. Here's the main list instead.\n" .. mainHelp)
         end
     end
 
