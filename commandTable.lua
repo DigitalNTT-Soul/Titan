@@ -33,6 +33,12 @@ local commands={
         action=dm.pdm,
         },
     {
+        name="spam",
+        usage = "``spam <text>`` Repeatedly spams <text> up to 100 times.",
+        dusage = "``spam <text>`` Repeatedly spams <text> up to 100 times.\nIf sent in PMs, the bot simply PMs <text> to you 100 times.\nIf sent in a guild where the bot has permission to create and delete channels, the bot will create a temporary channel, send the spam messsages there, and then delete the channel.\nIf sent in a guild where the bot does *not* have those permissions, the bot simply replies in the same channel (only 10 times in this case)",
+        action = dm.spam,
+        },
+    {
         name="cs",
         usage = "``cs`` displays an organized table of the user's MML character sheet, if they have one. Please contact the bot owner to set up or change your character sheet.",
         dusage="``cs`` displays an organized table of the user's MML character sheet, if they have one. Please contact the bot owner to set up or change your character sheet.",

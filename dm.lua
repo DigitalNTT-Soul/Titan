@@ -75,33 +75,32 @@ local function pdm(client, logger, message, text)
 end
 
 local function spam(client, logger, message, text)
-    local file = io.open('./spam.txt', 'w')
-    local contents = file:read('*a')
-    if contents=='running' then
-        file:write('stop')
-        file:close()
-    elseif contents=='stop' or contents==nil then
-        file:write('running')
-        file:close()
-    else
-        print('Error Spam-1: Content mismatch.')
-        message:reply('Error Spam-1: Please contact ' .. client.owner.fullname)
-        return nil
-    end
-    for i=1, 100 do
-        file = io.open('file', 'r')
-        contents = file:read('*a')
-        if contents=='running' then
-            message:reply('GET ONLINE ' .. insert.mentionstring.variable.here)
-            file:close()
-        elseif contents=='stop' then
-            file:close()
-            break
+    local function loop(channel, text)
+        --the actual loop that spams the messages out.
+        for i=1, 20 do
+            channel:send(text)
         end
+    end
+
+    if message.guild then
+        if message.guild:getMember(message.author):hasPermission(0x00000008) then
+            if message.guild:getMember(client.user):hasPermission(0x00000010) then
+                spamChannel = message.guild:createTextChannel('Spamming')
+                loop(spamChannel, text)
+                spamChannel:delete()
+            else
+                loop(message.channel, text)
+            end
+        else
+            message:reply("You don't have the authority to have me spam for you.")
+        end
+    else
+        loop(message.channel, text)
     end
 end
 
 return {
     dm = dm,
     pdm = pdm,
+    spam = spam,
 }
