@@ -16,7 +16,7 @@ local function reboot(client, logger, message, text)
         message:reply('Rebooting')
         client:setStatus('invisible')
         client:stop()
-        os.execute('reboot.bat')
+        os.execute('boot.bat')
     else
         logger:log(2 --[[warning]], message.author.fullname .. ' does not have permission to reboot!')
         message:reply("No thanks. I think I'm good.")
