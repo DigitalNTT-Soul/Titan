@@ -35,8 +35,8 @@ local commands={
         },
     {
         name="spam",
-        usage = "``spam <text>`` Repeatedly spams <text> up to 100 times.",
-        dusage = "``spam <text>`` Repeatedly spams <text> up to 100 times.\nIf sent in PMs, the bot simply PMs <text> to you 100 times.\nIf sent in a guild where the bot has permission to create and delete channels, the bot will create a temporary channel, send the spam messsages there, and then delete the channel.\nIf sent in a guild where the bot does *not* have those permissions, the bot simply replies in the same channel (only 10 times in this case)",
+        usage = "``spam <text>`` Repeatedly spams <text> up to 5 times.",
+        dusage = "``spam <text>`` Repeatedly spams <text> up to 5 times.\nIf sent in PMs, the bot simply PMs <text> to you 5 times.\nIf sent in a guild where the bot has permission to create and delete channels, the bot will create a temporary channel, send the spam messsages there, and then delete the channel.\nIf sent in a guild where the bot does *not* have those permissions, the bot simply replies in the same channel.",
         action = dm.spam,
         },
     {
@@ -95,14 +95,14 @@ local commands={
         },
     {
         name="lazarus",
-        usage=nil,
-        dusage=nil,
+        usage="Just for Lols",
+        dusage="Just for Lols. Try it.",
         action=gimmix.lazarus,
         },
     {
         name="notbadforasorceror",
-        usage=nil,
-        dusage=nil,
+        usage="Just for Lols",
+        dusage="Just for Lols. Try it.",
         action=gimmix.notbadforasorceror,
         },
 }
