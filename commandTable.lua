@@ -95,14 +95,14 @@ local commands={
         },
     {
         name="lazarus",
-        usage="Just for Lols",
-        dusage="Just for Lols. Try it.",
+        usage="``lazarus`` Just for Lols",
+        dusage="``lazarus`` Just for Lols. Try it.",
         action=gimmix.lazarus,
         },
     {
         name="notbadforasorceror",
-        usage="Just for Lols",
-        dusage="Just for Lols. Try it.",
+        usage="``notbadforasorceror`` Just for Lols",
+        dusage="``notbadforasorceror`` Just for Lols. Try it.",
         action=gimmix.notbadforasorceror,
         },
 }
