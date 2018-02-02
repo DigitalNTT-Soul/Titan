@@ -5,6 +5,7 @@
     local dice = require("./dice.lua")
     local mM = require("./mmlMechanics.lua")
     local debug = require("./debug.lua")
+    local gimmix = require("./gimmix.lua")
 --]]
 
 local commands={
@@ -91,6 +92,18 @@ local commands={
         usage=nil,
         dusage=nil,
         action=debug.exec,
+        },
+    {
+        name="lazarus",
+        usage=nil,
+        dusage=nil,
+        action=gimmix.lazarus,
+        },
+    {
+        name="notbadforasorceror",
+        usage=nil,
+        dusage=nil,
+        action=gimmix.notbadforasorceror,
         },
 }
 
