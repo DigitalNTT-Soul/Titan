@@ -20,14 +20,12 @@ local function help(client, logger, message, text)
                     message:reply(message.author.mentionString .. " Check your PMs :)")
                 end
                 return message.author:send(cmdTab[i]['dusage'])
-                break
             end
         end
         if status==0 then
             return message.author:send("I couldn't find a command called '" .. text .. "'. Here's the main list instead.\n" .. mainHelp)
         end
     end
-
 end
 
 local function info(client, logger, message, text)
