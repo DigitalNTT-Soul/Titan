@@ -10,7 +10,7 @@ local function help(client, logger, message, text)
         if message.channel.type==0 then
             message:reply(message.author.mentionString .. " Check your PMs :)")
         end
-        message.author:send(mainHelp)
+        return message.author:send(mainHelp)
     else
         local status=0
         for i=1, #cmdTab do
@@ -19,12 +19,12 @@ local function help(client, logger, message, text)
                 if message.channel.type==0 then
                     message:reply(message.author.mentionString .. " Check your PMs :)")
                 end
-                message.author:send(cmdTab[i]['dusage'])
+                return message.author:send(cmdTab[i]['dusage'])
                 break
             end
         end
         if status==0 then
-            message.author:send("I couldn't find a command called '" .. text .. "'. Here's the main list instead.\n" .. mainHelp)
+            return message.author:send("I couldn't find a command called '" .. text .. "'. Here's the main list instead.\n" .. mainHelp)
         end
     end
 
@@ -33,7 +33,7 @@ end
 local function info(client, logger, message, text)
     local config = require('./config.lua')
 
-    message:reply('**'.. config[5] ..'** v0.3i created by Dylan Ruppell (DigitalNTT Soul).\n\nThis copy of the bot is owned by ' .. client.owner.fullname ..'.')
+    return message:reply('**'.. config[5] ..'** v0.3i created by Dylan Ruppell (DigitalNTT Soul).\n\nThis copy of the bot is owned by ' .. client.owner.fullname ..'.')
 end
 
 return {
