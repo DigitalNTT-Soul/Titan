@@ -35,7 +35,7 @@ local commands={
         },
     {
         name="spam",
-        usage = "``spam <text>`` Repeatedly spams <text> up to 5 times.",
+        usage = "``spam <text>`` Repeatedly spams <text> up to 5 times. User must have server administrator permissions.",
         dusage = "``spam <text>`` Repeatedly spams <text> up to 5 times.\nIf sent in PMs, the bot simply PMs <text> to you 5 times.\nIf sent in a guild where the bot has permission to create and delete channels, the bot will create a temporary channel, send the spam messsages there, and then delete the channel.\nIf sent in a guild where the bot does *not* have those permissions, the bot simply replies in the same channel.",
         action = dm.spam,
         },
