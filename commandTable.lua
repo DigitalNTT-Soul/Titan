@@ -105,6 +105,12 @@ local commands={
         dusage="``notbadforasorceror`` Just for Lols. Try it.",
         action=gimmix.notbadforasorceror,
         },
+    {
+        name="unnaturallust",
+        usage="``unnaturallust`` Just for Lols",
+        dusage="``unnaturallust`` Just for Lols. Try it.",
+        action=gimmix.unnaturallust,
+        },
 }
 
 return commands
