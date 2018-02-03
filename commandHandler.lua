@@ -54,7 +54,7 @@ local function handler(client, logger, message, text)
     if validityChecker(message,text) and blacklist(message.author.id) then
         local status=0
         for i=1, #commands do
-            if string.sub(text, 1, #commands[i]['name'])==commands[i]['name'] then
+            if string.sub(text, 1, #commands[i]['name']):lower()==commands[i]['name'] then
                 status=1
                 text = text:sub(#commands[i]['name']+2, -1)
                 print(text) -- scaffolding
