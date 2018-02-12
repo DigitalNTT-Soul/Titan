@@ -63,34 +63,34 @@ local commands={
         dusage="``min [dice expression]`` Calculates and displays the minimum possible roll for a valid dice expression.,",
         action=functions.dice.min,
         },
-    acon = {
-        name="acon",
+    superon = {
+        name="superon",
         usage=nil,
         dusage=nil,
-        action=functions.dice.acon,
+        action=functions.dice.superon,
         },
-    acoff = {
-        name="acoff",
+    superoff = {
+        name="superoff",
         usage=nil,
         dusage=nil,
-        action=functions.dice.acoff,
+        action=functions.dice.superoff,
         },
     kill = {
         name="kill",
         usage=nil,
-        dusage=nil,
+        dusage="``kill`` turns the bot off. Can only be used by the owner of the bot.",
         action=functions.debug.kill,
         },
     reboot = {
         name="reboot",
         usage=nil,
-        dusage=nil,
+        dusage="``reboot`` reboots the bot. Can only be used by the owner of the bot.",
         action=functions.debug.reboot,
         },
     exec = {
         name="exec",
         usage=nil,
-        dusage=nil,
+        dusage="``exec`` makes the bot run Lua code for the user. Can only be used by the owner of the bot.",
         action=functions.debug.exec,
         },
     lazarus = {
