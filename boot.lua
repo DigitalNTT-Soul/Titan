@@ -13,7 +13,6 @@ function client:_coreEnv(core)
 end
 
 function client:_loadModule(path, moduleName, object)
-    print('loading ' .. path .. ' to ' .. moduleName)
     --makes sure that all the required variables are present and performs a minimalistic check to see if they'll be usable
     if not path or not moduleName or not object or path=='' or moduleName=='' then return object end
 
