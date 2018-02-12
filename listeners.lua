@@ -33,7 +33,7 @@ local function messageCreateHandler(message)
             if text:startswith(prefix) or message.channel.type==1 then
                 local command, arg
                 if text:startswith(prefix) then
-                    command, arg = text:match("^<>(%S+)%s?(.*)$")
+                    command, arg = text:match("^" .. core.config.prefix .. "(%S+)%s?(.*)$")
                 else
                     command, arg = text:match("^(%S+)%s?(.*)$")
                 end
