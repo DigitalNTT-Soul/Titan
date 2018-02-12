@@ -31,7 +31,12 @@ local function messageCreateHandler(message)
         local function parseMessage(message)
             local text = message.content
             if text:startswith(prefix) or message.channel.type==1 then
-                command, arg = text:match("^<>(%S+)%s?(.*)$")
+                local command, arg
+                if text:startswith(prefix) then
+                    command, arg = text:match("^<>(%S+)%s?(.*)$")
+                else
+                    command, arg = text:match("^(%S+)%s?(.*)$")
+                end
                 print(command, arg)
                 return command, arg
             end
@@ -57,7 +62,7 @@ local function messageCreateHandler(message)
         local blacklisted = checkBlacklist(message.author.id)
         if (commandList and command and not blacklisted) then 
             command = commandList[command]
-            if command and command.usage and command.dusage then
+            if command and command.dusage then
                 message._text = text
                 local success, result = pcall(command.action, client, core, message)
                 if not success then
@@ -65,7 +70,7 @@ local function messageCreateHandler(message)
                     return client:_reboot(core)
                 end
                 return success
-            elseif command and not command.usage and not command.dusage then
+            elseif command and not command.dusage then --secret commands
                 message._text = text
                 local success, result = pcall(command.action, client, core, message)
                 if not success then
