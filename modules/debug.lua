@@ -14,7 +14,7 @@ end
 local function reboot(client, core, message)
     local logger = client._logger
     if message.author.id == client.owner.id then
-        logger:log(3 --[[info]], message.author.id .. ' called reboot.')
+        logger:log(3 --[[info]], message.author.fullname .. ' called reboot.')
         message:reply('Rebooting')
         return client._reboot(core)
     else
