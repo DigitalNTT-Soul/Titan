@@ -7,6 +7,7 @@ client:_loadModule('./modules/dice.lua','dice',functions)
 client:_loadModule('./modules/mmlMechanics.lua','mM',functions)
 client:_loadModule('./modules/debug.lua','debug',functions)
 client:_loadModule('./modules/gimmix.lua','gimmix',functions)
+client:_loadModule('./test.lua','test',functions)
 
 local commands={
     help = {
@@ -116,6 +117,18 @@ local commands={
         usage="``fuckthisgame`` Just for Lols",
         dusage="``fuckthisgame`` Just for Lols. Try it.",
         action=functions.gimmix.fuckthisgame,
+        },
+    damnitconor = {
+        name="damnitconor",
+        usage = "``damnitconor`` Just for Lols",
+        dusage = "``fuckthisgame`` Just for Lols. Try it.",
+        action = functions.gimmix.damnitconor,
+    },
+    test = {
+        name = 'test',
+        usage="``test`` whatever I'm currently working on.",
+        dusage ="``test`` This is where command-babies come from.",
+        action = functions.test.test,
         },
 }
 

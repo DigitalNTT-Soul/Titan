@@ -33,9 +33,16 @@ local function fuckthisgame(client, core, message)
     end
 end
 
+local function damnitconor(client, core, message)
+    if message.author.id ~= "305091651129573386" then
+        return message:reply("https://cdn.discordapp.com/attachments/280096809462792194/414964824594841600/h33cZarnmfAAAAABJRU5ErkJggg.png")
+    end
+end
+
 return {
     lazarus = lazarus,
     notbadforasorceror = notbadforasorceror,
     unnaturallust = unnaturallust,
     fuckthisgame = fuckthisgame,
+    damnitconor = damnitconor,
     }
