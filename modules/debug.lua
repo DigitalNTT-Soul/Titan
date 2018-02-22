@@ -28,6 +28,7 @@ local function exec(client, core, message)
         require = require,
         client = client,
         logger = client._logger,
+        core = core,
         message = message,
         text = message._text,
     }, { __index = _G })
