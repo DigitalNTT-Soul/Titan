@@ -24,7 +24,7 @@ local function help(client, core, message)
 end
 
 local function info(client, core, message)
-    return message:reply('**' .. core.config.name .. '** v0.6i created by Dylan Ruppell (DigitalNTT Soul).\n\nThis copy of the bot is owned by ' .. client.owner.fullname ..'.')
+    return message:reply('**' .. core.config.name .. '** v0.6 **α** Created by Dylan Ruppell (DigitalNTT Soul).\n\nThis copy of the bot is owned by ' .. client.owner.fullname ..'.')--(α) (β) (Ω)
 end
 
 return {
