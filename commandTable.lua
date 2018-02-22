@@ -49,19 +49,19 @@ local commands={
     roll = {
         name="roll",
         usage = "``roll`` Rolls a dice expression, defaulting to 1d20 if none is provided.",
-        dusage="``roll`` Rolls 1d20.\n``roll [dice expression]`` will roll the specified dice expression.\n``roll [dice expression] [< > << >>] [number]`` will roll the dice expression and automatically compare it to the number. single ``<`` or ``>`` means it can compare an entire complex dice expression to the number once, while double ``<<`` or ``>>`` will compare each roll of a simple dice expression to the number.",--need more usage information
+        dusage="**Dice Expressions**\n``roll`` Rolls 1d20.\n``roll 10`` Rolls 1d10.\n``roll 4d20`` Rolls 4d20.\n``roll 3d6 + 2`` Rolls 3d6, then adds 2.\n``roll 3d20 - d10 + 6`` Rolls 3d20, subtracts 1d10, then adds 6.\n\n**Comparisons**\n``roll 2d20 + 4 > 10`` Rolls 2d20 + 4, and compares the total to 10.\n``roll 6d20 >> 14`` Rolls 6d20 and compares each d20 result to 14.",
         action=functions.dice.roll,
         },
     max = {
         name="max",
         usage = "``max`` Calculates and displays the maximum possible roll for a valid dice expression.",
-        dusage="``max [dice expression]`` Calculates and displays the maximum possible roll for a valid dice expression.",
+        dusage="``max [dice expression]`` Calculates and displays the maximum possible roll for a valid dice expression. Use ``" .. core.config.prefix .. "help roll`` to see examples of valid dice expressions.",
         action=functions.dice.max,
         },
     min = {
         name="min",
         usage = "``min`` Calculates and displays the minimum possible roll for a valid dice expression.",
-        dusage="``min [dice expression]`` Calculates and displays the minimum possible roll for a valid dice expression.,",
+        dusage="``min [dice expression]`` Calculates and displays the minimum possible roll for a valid dice expression. Use ``" .. core.config.prefix .. "help roll`` to see examples of valid dice expressions.",
         action=functions.dice.min,
         },
     superon = {
