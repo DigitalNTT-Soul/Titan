@@ -3,6 +3,33 @@ local client = discordia.Client()
 local core = {}
 client._logger = discordia.Logger(3, '%F %T', discordia.log)
 
+--debug tool
+function client:_unload(input) --takes argument, and unpacks it all into a single, multi-line string
+    local result = ""
+    if type(input)=="string" then
+        result = result .. input .. "\n"
+    elseif (type(input)=="number" or type(input)=="boolean") then
+        result = result .. tostring(input) .. "\n"
+    elseif type(input)=="nil" then
+        result = result .. "nil\n"
+    elseif type(input)=="function" then
+        result = result .. "unexpected function object\n"
+    elseif type(input)=="thread" then
+        result = result .. "unexpected thread object\n"
+    elseif type(input)=="userdata" then
+        result = result .. "unexpected userdata object\n"
+    elseif type(input)=="table" then
+        result = result .. "{\n"
+        for k, v in pairs(input) do
+            result = result .. k .. ":\n" .. self:_unload(input[k])
+        end
+        result = result .. "}\n"        
+    else
+        result = result .. "unidentifiable data type\n"
+    end
+    return result
+end
+
 function client:_coreEnv(core)
     self._env = setmetatable({
         discordia = discordia,
