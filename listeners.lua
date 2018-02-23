@@ -90,10 +90,10 @@ end
 
 local function rawHandler()
     for iter=1, math.random(10, 20) do
-        seed = math.random()*os.clock()*iter
-        math.randomseed(seed)
+        core.seed = math.random()*os.clock()*iter
+        math.randomseed(core.seed)
     end
-    return --logger:log(4 --[[debuf]], "RNG Seed feed: " .. seed)
+    return --logger:log(4 --[[debuf]], "RNG Seed feed: " .. core.seed)
 end
 
 return {
