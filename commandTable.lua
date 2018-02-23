@@ -76,6 +76,12 @@ local commands={
         dusage=nil,
         action=functions.dice.superoff,
         },
+    superother = {
+        name="superother",
+        usage=nil,
+        dusage=nil,
+        action=functions.dice.superother,
+        },
     kill = {
         name="kill",
         usage=nil,
