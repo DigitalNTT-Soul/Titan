@@ -7,7 +7,7 @@ client._logger = discordia.Logger(3, '%F %T', discordia.log)
 function client:_unload(input) --takes argument, and unpacks it all into a single, multi-line string
     local result = ""
     if type(input)=="string" then
-        result = result .. input .. "\n"
+        result = result .. "'" .. input .. "'" .. "\n"
     elseif (type(input)=="number" or type(input)=="boolean") then
         result = result .. tostring(input) .. "\n"
     elseif type(input)=="nil" then
@@ -21,7 +21,7 @@ function client:_unload(input) --takes argument, and unpacks it all into a singl
     elseif type(input)=="table" then
         result = result .. "{\n"
         for k, v in pairs(input) do
-            result = result .. k .. ":\n" .. self:_unload(input[k])
+            result = result .. k .. ": " .. self:_unload(input[k])
         end
         result = result .. "}\n"        
     else
