@@ -38,7 +38,7 @@ local function messageCreateHandler(message)
                     command, arg = text:match("^(%S+)%s?(.*)$")
                 end
                 print(command, arg)
-                return command, arg
+                return command:lower(), arg
             end
             return nil
         end
