@@ -1,10 +1,21 @@
+--[[
+In this bot architecture, there are 2 critical variables and 2 files that must be present
+The two critical variables are *client* and *core*. 
+    client refers to a handful of static and constantly reused values and functions (such as the actual established connection to discord servers) and is not intended to be changed at all (listeners are currently susceptible to runtime errors)
+    core refers to all the logic behind the bot that may be unstable or in development at any given time during the bot's operation, such as event listeners and individual command functions
+
+The two required files are a "./config.lua" and a "./listeners.lua". Both files must return a key-value table.
+    config must return at least one entry, with key: "token" and value: "Bot <token>"
+    listeners must return a table of key: "<name_of_event>" and value: functionToHandleEvent
+        Note that you return the function object. You do not CALL the given function.
+--]]
+
 local discordia = require('discordia')
 local client = discordia.Client()
 local core = {}
 client._logger = discordia.Logger(3, '%F %T', discordia.log)
 
---debug tool
-function client:_unload(input) --takes argument, and unpacks it all into a single, multi-line string
+function client:_unload(input) --debug tool, takes argument of any dataType, and unpacks it all into a single, multi-line string
     local result = ""
     if type(input)=="string" then
         result = result .. "'" .. input .. "'" .. "\n"
@@ -59,12 +70,14 @@ function client:_loadModule(path, moduleName, object)
     local success, result = pcall(fn)
     if not success then print(result) return object end
 
-    --if pcall was successful, save the results inside core.
+    --if pcall was successful, save the results inside *object*.
     object[moduleName] = result
     return object
 end
 
 function client:_init(core)
+    --infinite loop function, designed to be run as a coroutine. Initializes everything the bot needs, and hits the coroutine.yield.
+    --under certain circumstances, such as an individual command being imported improperly, other functions will resume this coroutine, which causes the final step of the loop to occur, and the loop begins anew.
     while true do
         print('initializing core')
         core = {}
@@ -86,6 +99,7 @@ function client:_init(core)
 end
 
 function client:_start(core)
+    --calls the function to initialize the bot and returns the core object.
     client._reboot = coroutine.wrap(self._init)
     core = client:_reboot(core)
     return core
