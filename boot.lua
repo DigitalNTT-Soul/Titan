@@ -15,7 +15,7 @@ local client = discordia.Client()
 local core = {}
 client._logger = discordia.Logger(3, '%F %T', discordia.log)
 
-function client:_unload(input) --debug tool, takes argument of any dataType, and unpacks it all into a single, multi-line string
+function client:_unload(input) --simple debug tool, takes argument of any dataType, and unpacks it all into a single, multi-line string
     local result = ""
     if type(input)=="string" then
         result = result .. "'" .. input .. "'" .. "\n"
