@@ -28,6 +28,9 @@ end
 
 local function messageCreateHandler(message)
     if not message.author.bot then
+        if message.content:lower() == 'ping' then
+            return message:reply("Yes, yes, I'm here...")
+        end
         local function parseMessage(message)
             local text = message.content
             if text:startswith(prefix) or message.channel.type==1 then
@@ -37,7 +40,10 @@ local function messageCreateHandler(message)
                 else
                     command, arg = text:match("^(%S+)%s?(.*)$")
                 end
-                print(command, arg)
+
+                if not (command --[[or arg]]) then return nil end
+
+                logger:log(3 --[[info]], message.author.fullname .. ' :: ' .. command .. ' :: ' .. arg)
                 return command:lower(), arg
             end
             return nil
