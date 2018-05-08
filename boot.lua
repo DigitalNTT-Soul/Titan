@@ -52,7 +52,7 @@ end
 
 function client:_loadModule(path, moduleName, object)
     --makes sure that all the required variables are present and performs a minimalistic check to see if they'll be usable
-    if not path or not moduleName or not object or path=='' or moduleName=='' then return object end
+    if not (path and moduleName and object) then return object end
 
     --loads module into *buffer*, converts buffer into *code* and, then closes buffer
     local buffer = io.open(path, 'r')
