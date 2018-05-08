@@ -1,13 +1,15 @@
 local functions = {}
 
-client:_loadModule('./modules/info.lua', 'info', functions)
-client:_loadModule('./modules/dm.lua', 'dm', functions)
-client:_loadModule('./modules/mmlParty.lua','mP',functions)
-client:_loadModule('./modules/dice.lua','dice',functions)
-client:_loadModule('./modules/mmlMechanics.lua','mM',functions)
-client:_loadModule('./modules/debug.lua','debug',functions)
-client:_loadModule('./modules/gimmix.lua','gimmix',functions)
-client:_loadModule('./test.lua','test',functions)
+client:_loadModule('./modules/info.lua',            'info',         functions)
+client:_loadModule('./modules/dm.lua',              'dm',           functions)
+client:_loadModule('./modules/mmlParty.lua',        'mP',           functions)
+client:_loadModule('./modules/dice.lua',            'dice',         functions)
+client:_loadModule('./modules/mmlMechanics.lua',    'mM',           functions)
+client:_loadModule('./modules/debug.lua',           'debug',        functions)
+client:_loadModule('./modules/gimmix.lua',          'gimmix',       functions)
+client:_loadModule('./modules/warframeTools.lua',   'warframeTools',functions)
+
+client:_loadModule('./test.lua',                    'test',         functions)
 
 local commands={
     help = {
@@ -127,7 +129,7 @@ local commands={
     damnitconor = {
         name="damnitconor",
         usage = "``damnitconor`` Just for Lols",
-        dusage = "``fuckthisgame`` Just for Lols. Try it.",
+        dusage = "``damnitconor`` Just for Lols. Try it.",
         action = functions.gimmix.damnitconor,
     },
     test = {
@@ -135,6 +137,12 @@ local commands={
         usage="``test`` whatever I'm currently working on.",
         dusage ="``test`` This is where command-babies come from.",
         action = functions.test.test,
+        },
+    appraise = {
+        name = 'appraise',
+        usage = "``appraise <integer 0-3> <6 more positive integers>`` uses the 7 entered numbers to calculate the statistical value of a given relic",
+        dusage = "``appraise <integer 0-3 representing the refinement level of a relic> <6 more positive integers indicating the platinum value of each drop>`` uses the 7 entered numbers to calculate the statistical value of a given relic",
+        action = functions.warframeTools.appraise,
         },
 }
 
