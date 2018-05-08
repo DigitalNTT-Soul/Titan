@@ -1,20 +1,13 @@
 local function lazarus(client, core, message)
-    local timer = require('timer')
-    local internalStatus = nil
-    local bot = nil
-    if message.guld then bot = message.guild:getMember(client.user) end
-    if bot and bot.status~='invisble' then
-        print('going offline')
-        internalStatus = 'invisible'
-        client:setStatus('invisible')
+    if message.author.id ~= '254455986973179906' then
+        local timer = require('timer')
+        
+        message:reply("RUUUUUUUU-huhuhuuuuuuuuun!!!")
+        timer.sleep(30000)
+        return message:reply('It occurs to me that ' .. message.author.name .. ' was just fucking with me when he mentioned my worst nightmare... He\'ll pay for that later.')
+    else
+        return message:reply("You are he who fucks with time. I am he who fucks with You.")
     end
-    message:reply("RUUUUUUUU-huhuhuuuuuuuuun!!!")
-    timer.sleep(30000)
-    if internalStatus == 'invisible' then
-        print('coming online')
-        client:setStatus('online')
-    end
-    return message:reply('It occurs to me that ' .. message.author.name .. ' was just fucking with me when he mentioned my worst nightmare... He\'ll pay for that later.')
 end
 
 local function notbadforasorceror(client, core, message)
