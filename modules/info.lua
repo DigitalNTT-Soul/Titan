@@ -1,3 +1,4 @@
+-- � 2017-2018 Dylan Ruppell
 local function help(client, core, message)
     local cmdTab = core.commands
     local text = message._text

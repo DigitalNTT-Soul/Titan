@@ -1,3 +1,4 @@
+-- � 2017-2018 Dylan Ruppell
 local function appraise(client, core, message)
 	local text = message._text
 	local value

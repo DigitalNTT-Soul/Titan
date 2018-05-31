@@ -1,3 +1,4 @@
+-- � 2017-2018 Dylan Ruppell
 local function lazarus(client, core, message)
     if message.author.id ~= '254455986973179906' then
         local timer = require('timer')

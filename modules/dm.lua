@@ -1,3 +1,4 @@
+-- � 2017-2018 Dylan Ruppell
 discordia.extensions()
 local logger = client._logger
 

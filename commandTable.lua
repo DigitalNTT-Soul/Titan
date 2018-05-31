@@ -1,3 +1,4 @@
+-- © 2017-2018 Dylan Ruppell
 local functions = {}
 
 client:_loadModule('./modules/info.lua',            'info',         functions)

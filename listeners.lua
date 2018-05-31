@@ -1,3 +1,4 @@
+-- © 2017-2018 Dylan Ruppell
 local config = core.config
 local name = config.name
 local playing = config.playing

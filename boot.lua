@@ -1,3 +1,4 @@
+-- © 2017-2018 Dylan Ruppell
 --[[
 In this bot architecture, there are 2 critical variables and 2 files that must be present
 The two critical variables are *client* and *core*. 

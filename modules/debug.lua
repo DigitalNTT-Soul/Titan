@@ -1,3 +1,4 @@
+-- � 2017-2018 Dylan Ruppell
 local function kill(client, core, message)
     local logger = client._logger
     if message.author.id == client.owner.id then
